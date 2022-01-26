@@ -4,6 +4,8 @@
   "description": "Backend for gaming events application, written in next.js",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Zain Javed",
@@ -14,6 +16,7 @@
     "express": "^4.17.2"
   },
   "devDependencies": {
+    "nodemon": "^2.0.15",
     "prisma": "^3.8.1"
   }
 }
