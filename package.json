@@ -13,7 +13,10 @@
   "dependencies": {
     "@prisma/client": "^3.8.1",
     "bcryptjs": "^2.4.3",
-    "express": "^4.17.2"
+    "express": "^4.17.2",
+    "express-validation": "^3.0.8",
+    "nodemailer": "^6.7.2",
+    "otp-generator": "^4.0.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.15",
