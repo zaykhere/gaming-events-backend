@@ -1,0 +1,19 @@
+{
+  "name": "gaming-events-backend",
+  "version": "1.0.0",
+  "description": "Backend for gaming events application, written in next.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Zain Javed",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^3.8.1",
+    "bcryptjs": "^2.4.3",
+    "express": "^4.17.2"
+  },
+  "devDependencies": {
+    "prisma": "^3.8.1"
+  }
+}
