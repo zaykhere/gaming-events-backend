@@ -1,13 +1,14 @@
 const { PrismaClient } = require("@prisma/client");
 
 const prisma = new PrismaClient();
+const bcrypt = require("bcryptjs");
 
 async function createUser() {
   await prisma.user.create({
     data: {
       name: "Hamza",
       email: "hamza@gaming-events.com",
-      password: "123456",
+      password: await bcrypt.hash("123456", 10),
       isVerified: true,
     },
   });
@@ -27,13 +28,14 @@ async function createEvent() {
       time: "08:00 PM EST",
       description: "Fortnite Tournament featuring 2 5-a side teams",
       image: "/images/events-3.jpg",
-      userId: 3,
+      userId: 7,
     },
   });
 
   const allEvents = await prisma.event.findMany();
   console.dir(allEvents, { depth: null });
 }
+
 
 if (process.argv[2] === "-cu") {
   createUser()

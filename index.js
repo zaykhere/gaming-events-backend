@@ -14,9 +14,11 @@ app.use(
 
 //Import Routes
 const userRoutes = require("./routes/user");
+const eventRoutes = require("./routes/events");
 
 //Use those routes
 app.use("/api", userRoutes);
+app.use("/api", eventRoutes);
 
 //Error Handling
 app.use((error, req, res, next) => {
