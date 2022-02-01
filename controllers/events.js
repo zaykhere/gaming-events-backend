@@ -48,3 +48,17 @@ exports.getAllEvents = async(req,res) => {
     }
     
 }
+
+exports.getLatestEvents = async(req,res) => {
+    const events = await prisma.event.findMany({
+        take: 3,
+        orderBy: [
+            {
+                createdAt: 'desc'
+            }
+        ]
+    });
+
+    if(!events) return res.status(404).json({error: "No events found"});
+    res.status(200).json({events: events});
+}

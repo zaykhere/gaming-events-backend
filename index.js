@@ -18,7 +18,7 @@ const eventRoutes = require("./routes/events");
 
 //Use those routes
 app.use("/api", userRoutes);
-app.use("/api", eventRoutes);
+app.use("/api/events", eventRoutes);
 
 //Error Handling
 app.use((error, req, res, next) => {
