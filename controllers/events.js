@@ -77,5 +77,6 @@ exports.searchEventBySlug = async (req, res) => {
     },
   });
   if (!evt) return res.status(404).json({ error: "No events found" });
+  evt.date = new Date(evt.date).toDateString();
   res.status(200).json({ evt: evt });
 };
