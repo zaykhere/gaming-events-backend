@@ -3,6 +3,10 @@ const cors = require("cors");
 
 const app = express();
 
+process.on('uncaughtException', (ex) => {
+  console.log(ex.message);
+})
+
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(

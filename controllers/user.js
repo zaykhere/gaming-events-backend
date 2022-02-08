@@ -8,6 +8,27 @@ const otpgen = require("../utils/otpgen");
 
 const saltRounds = 10;
 
+exports.login = async(req,res) => {
+  const {email, password} = req.body;
+  try {
+    const user = await prisma.user.findUnique({
+      where: {
+        email: email
+      }
+    })
+    if(!user) return res.status(404).json({error:"Invalid credentials"});
+    const checkPassword = await bcrypt.compare(password, user.password);
+    if(!checkPassword) return res.status(404).json({error:"Invalid credentials"});
+    let id = user.id;
+    res.status(200).json({
+      token: sign({id}, process.env.JWT_SECRET)
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({error: "Unexpected Error while logging in"});
+  }
+}
+
 exports.register = async (req, res) => {
     const { error } = RegisterValidation.validate(req.body);
   
